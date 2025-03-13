@@ -965,10 +965,7 @@ func (c *ApiController) Login() {
 						return
 					}
 
-					userId := userInfo.Id
-					if userId == "" {
-						userId = util.GenerateId()
-					}
+					userId := util.GenerateId()
 
 					user = &object.User{
 						Owner:             application.Organization,
