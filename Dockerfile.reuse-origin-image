@@ -14,7 +14,7 @@ RUN --mount=type=cache,target=/go/pkg/mod \
     --mount=type=cache,target=/root/.cache/go-build ./build.sh
 RUN go test -v -run TestGetVersionInfo ./util/system_test.go ./util/system.go > version_info.txt
 
-FROM --platform=$TARGETPLATFORM casbin/casdoor:latest
+FROM casbin/casdoor:latest
 ARG USER=casdoor
 ARG TARGETARCH
 COPY --from=back --chown=$USER:$USER /go/src/casdoor/server_${BUILDX_ARCH} ./server
